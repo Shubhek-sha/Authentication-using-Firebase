@@ -1,7 +1,7 @@
 //for authentication which is going to encapsulate the childrens
 
 import React, { useContext, useEffect, useState } from "react";
-import { auth } from "../firebase/firebase";
+import { auth } from "../firebase/firebase.jsx";
 import { onAuthStateChanged } from "firebase/auth";
 
 const AuthContext = React.createContext();
@@ -16,13 +16,13 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, intializeUser);
+    const unsubscribe = onAuthStateChanged(auth, initializeUser);
     return unsubscribe;
   }, []); //call back function as argument and empty dependency array because we need at first
 
   async function initializeUser(user) {
     if (user) {
-      setCurrentUser({ ...User });
+      setCurrentUser({ ...user });
       setUserLoggedIn(true);
     } else {
       setCurrentUser(null);
