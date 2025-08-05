@@ -3,7 +3,7 @@ import { Navigate, Link } from "react-router-dom";
 import {
   doSignInWithEmailAndPassword,
   doSignInWithGoogle,
-} from "../../../firebase/auth";
+} from "../../firebase/auth";
 import { useAuth } from "../../context/AuthContext.jsx";
 
 const Login = () => {
